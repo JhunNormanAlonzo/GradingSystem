@@ -32,7 +32,7 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|unique:users',
             'password' => 'required|min:4|max:20',
             'role' => 'required'
         ]);
@@ -50,7 +50,7 @@ class UserController extends Controller
         $user->assignRole($role);
 
 
-        return redirect()->route('users.index')->with('message', 'Created Successfully!');
+        return redirect()->back()->with('message', 'Created Successfully!');
 
     }
 

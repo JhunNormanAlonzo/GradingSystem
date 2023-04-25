@@ -11,10 +11,10 @@
                 </div>
             @endif
 
-            <div class="col-6 ">
+            <div class="col-4 offset-4 my-2">
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Grading</h5>
+                    <div class="card-header bg-primary">
+                        <h5 class="card-title text-white">Grading</h5>
                     </div>
                     <div class="card-body">
                         <form action="{{route('grades.store')}}" method="POST">
@@ -52,15 +52,19 @@
 
                                 <div class="col-12 my-2">
                                     <label for="">Grade</label>
-                                    <input type="number" step="0.01" class="form-control-sm form-control" name="grade" placeholder="enter a grade here decimal is enabled">
+                                    <input type="number" step="0.01" maxlength="100" min="60" class="form-control-sm form-control" name="grade" placeholder="enter a grade from 60 to 100">
                                     @error('grade')
                                     <span class="text-danger small">
                                         {{$message}}
                                     </span>
                                     @enderror
                                 </div>
-                                <div class="col-12 my-2">
-                                    <button type="submit" class="btn btn-primary btn-sm"> Save</button>
+                                <div class="col-6 my-2 d-grid">
+                                    <button type="submit" class="btn btn-primary btn-sm"> Submit</button>
+                                </div>
+
+                                <div class="col-6 my-2 d-grid">
+                                    <button type="reset" class="btn btn-danger btn-sm"> Clear</button>
                                 </div>
                             </div>
                         </form>
@@ -68,7 +72,7 @@
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-12 my-2">
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Grading</h5>
@@ -123,8 +127,11 @@
                                                                         </span>
                                                                         @enderror
                                                                     </div>
-                                                                    <div class="col-12 my-2">
+                                                                    <div class="col-6 my-2 d-grid">
                                                                         <button type="submit" class="btn btn-primary btn-sm"> Update</button>
+                                                                    </div>
+                                                                    <div class="col-6 my-2 d-grid">
+                                                                        <button type="reset" class="btn btn-danger btn-sm"> Clear</button>
                                                                     </div>
                                                                 </div>
                                                             </form>

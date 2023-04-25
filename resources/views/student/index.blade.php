@@ -17,6 +17,7 @@
                         <h5 class="card-title">My Grades</h5>
                     </div>
                     <div class="card-body">
+                        @if($grades->count() > 0)
                         <table class="table table-striped table-sm">
                             <thead>
                             <tr>
@@ -35,6 +36,13 @@
                             @endforeach
                             </tbody>
                         </table>
+                        @else
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="my-4 text-center">No record found!</p>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

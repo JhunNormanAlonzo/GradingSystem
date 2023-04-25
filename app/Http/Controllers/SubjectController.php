@@ -34,10 +34,11 @@ class SubjectController extends Controller
         ]);
 
         Subject::create([
-            'subject_name' => $request->subject_name
+            'subject_name' => $request->subject_name,
+            'description' => $request->description
         ]);
 
-        return redirect()->route('subjects.index')->with('message', 'Created Successfully!');
+        return redirect()->route('super-admin.index')->with('message', 'Created Successfully!');
     }
 
     /**
