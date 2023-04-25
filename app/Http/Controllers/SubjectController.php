@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Subject;
+use Illuminate\Http\Request;
+
+class SubjectController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $subjects = Subject::all();
+        return view('super-admin.subjects', compact('subjects'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+           'subject_name' => 'required|unique:subjects'
+        ]);
+
+        Subject::create([
+            'subject_name' => $request->subject_name
+        ]);
+
+        return redirect()->route('subjects.index')->with('message', 'Created Successfully!');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Subject $subject)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Subject $subject)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Subject $subject)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Subject $subject)
+    {
+        //
+    }
+}
