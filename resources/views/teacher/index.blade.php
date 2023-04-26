@@ -120,7 +120,7 @@
                                                                     </div>
                                                                     <div class="col-12 my-2">
                                                                         <label for="">Grade</label>
-                                                                        <input type="number" step="0.01" class="form-control-sm form-control" name="grade" placeholder="enter a grade here decimal is enabled">
+                                                                        <input type="number" step="0.01" class="form-control-sm form-control" value="{{$grade->grade}}" name="grade" placeholder="enter a grade here decimal is enabled">
                                                                         @error('grade')
                                                                         <span class="text-danger small">
                                                                             {{$message}}
